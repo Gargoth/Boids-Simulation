@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Boid_Container.gd" type="Script" id=1]
+[ext_resource path="res://Packed Scenes/Boid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Circle_Container.gd" type="Script" id=3]
+[ext_resource path="res://Packed Scenes/Circle.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Boid_Container" type="Node2D" parent="."]
+script = ExtResource( 1 )
+boid = ExtResource( 2 )
+boid_count = 15
+
+[node name="Circle_Container" type="Node2D" parent="."]
+script = ExtResource( 3 )
+circle = ExtResource( 4 )
