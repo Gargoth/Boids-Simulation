@@ -10,7 +10,7 @@
 [node name="Boid_Container" type="Node2D" parent="."]
 script = ExtResource( 1 )
 boid = ExtResource( 2 )
-boid_count = 15
+boid_count = 150
 
 [node name="Circle_Container" type="Node2D" parent="."]
 script = ExtResource( 3 )

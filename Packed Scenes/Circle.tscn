@@ -5,8 +5,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 34.4023
 
-[node name="Circle" type="RigidBody2D"]
-mode = 1
+[node name="Circle" type="StaticBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.1, 0.1 )

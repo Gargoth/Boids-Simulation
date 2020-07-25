@@ -1,19 +1,13 @@
 extends RigidBody2D
 
 export (int) var max_velocity = 50
-var detector : Area2D
-
+var overlapping_bodies = []
 
 func _ready():
-	detector = self.get_node("Detector")
 	self.rotation = 0.5
 
 
 func _physics_process(delta):
-	# orientation = orientation.move_toward(avoid_wall_direction(), deg2rad(10)).normalized()
-	
-	var overlapping_bodies = detector.get_overlapping_bodies()
-	
 	var separation = Vector2.ZERO
 	var alignment = Vector2.ZERO
 	var cohesion = Vector2.ZERO
@@ -22,16 +16,15 @@ func _physics_process(delta):
 		
 		for i in overlapping_bodies:
 			if i != self and i is RigidBody2D:
-				if self.position.distance_to(i.position) < 20:
+				if self.position.distance_to(i.position) < 15:
 					separation -= i.position - self.position
 				alignment += i.linear_velocity
 				cohesion += i.position - self.position
+			if i != self and i is StaticBody2D:
+				separation -= i.position - self.position
 		
 		alignment /= len(overlapping_bodies)-1
 		cohesion /= len(overlapping_bodies)-1
-	
-	if avoid_wall_direction():
-		separation -= (avoid_wall_direction() - self.position)
 	
 	self.applied_force = ((separation + alignment/8 + cohesion/100) * delta * max_velocity)
 	self.rotation = self.linear_velocity.angle() + deg2rad(90)
@@ -67,3 +60,11 @@ func avoid_wall_direction():
 				
 	if ret:
 		return ret["position"]
+
+
+func _on_Detector_body_entered(body):
+	overlapping_bodies.append(body)
+
+
+func _on_Detector_body_exited(body):
+	overlapping_bodies.erase(body)
