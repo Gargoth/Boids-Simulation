@@ -1,10 +1,10 @@
 # Boids Simulation
 
+[![Play on itch.io](https://img.shields.io/badge/Play%20on-itch.io-FA5C5C?style=for-the-badge&logo=itchdotio)](https://gargoth.itch.io/boids-simulation)
+
 A 2D Boids simulation built with the Godot Engine (v3.x). This project implements Craig Reynolds' flocking algorithm, simulating the collective motion of bird-like objects (boids) with interactive elements.
 
 This was created as a small weekend side project years ago in an attempt to learn the basics of the Godot Engine.
-
-[![Play on itch.io](https://img.shields.io/badge/Play%20on-itch.io-FA5C5C?style=for-the-badge&logo=itchdotio)](https://gargoth.itch.io/boids-simulation)
 
 ## Features
 
